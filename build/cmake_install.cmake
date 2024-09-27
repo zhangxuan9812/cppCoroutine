@@ -1,4 +1,4 @@
-# Install script for directory: /Users/xuanzhang/Work/cppCoroutine
+# Install script for directory: /home/eecs211/Desktop/cppCoroutine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,6 +27,11 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -34,27 +39,27 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Library/Developer/CommandLineTools/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/src/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/test/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/test/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/tools/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/tools/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -65,5 +70,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/xuanzhang/Work/cppCoroutine/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/eecs211/Desktop/cppCoroutine/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/xuanzhang/Work/cppCoroutine/src
-# Build directory: /Users/xuanzhang/Work/cppCoroutine/build/src
+# Source directory: /home/eecs211/Desktop/cppCoroutine/src
+# Build directory: /home/eecs211/Desktop/cppCoroutine/build/src
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

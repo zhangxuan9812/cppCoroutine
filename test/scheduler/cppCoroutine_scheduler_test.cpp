@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
 		//Create the scheduler
 		//If the second parameter is true, the main thread will be added to the scheduler
 		//Otherwise, the main thread will not be added to the scheduler
-		std::shared_ptr<Scheduler> scheduler = std::make_shared<Scheduler>(1, false, "scheduler_1");
+		std::shared_ptr<Scheduler> scheduler = std::make_shared<Scheduler>(3, true, "scheduler_1");
 		
 		scheduler->start();
 

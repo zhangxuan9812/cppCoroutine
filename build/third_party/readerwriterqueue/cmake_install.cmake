@@ -1,4 +1,4 @@
-# Install script for directory: /Users/xuanzhang/Work/cppCoroutine/third_party/readerwriterqueue
+# Install script for directory: /home/eecs211/Desktop/cppCoroutine/third_party/readerwriterqueue
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,6 +27,11 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -34,15 +39,15 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Library/Developer/CommandLineTools/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/readerwriterqueue" TYPE FILE FILES
-    "/Users/xuanzhang/Work/cppCoroutine/third_party/readerwriterqueue/atomicops.h"
-    "/Users/xuanzhang/Work/cppCoroutine/third_party/readerwriterqueue/readerwriterqueue.h"
-    "/Users/xuanzhang/Work/cppCoroutine/third_party/readerwriterqueue/readerwritercircularbuffer.h"
-    "/Users/xuanzhang/Work/cppCoroutine/third_party/readerwriterqueue/LICENSE.md"
+    "/home/eecs211/Desktop/cppCoroutine/third_party/readerwriterqueue/atomicops.h"
+    "/home/eecs211/Desktop/cppCoroutine/third_party/readerwriterqueue/readerwriterqueue.h"
+    "/home/eecs211/Desktop/cppCoroutine/third_party/readerwriterqueue/readerwritercircularbuffer.h"
+    "/home/eecs211/Desktop/cppCoroutine/third_party/readerwriterqueue/LICENSE.md"
     )
 endif()
 

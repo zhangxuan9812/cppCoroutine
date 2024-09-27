@@ -66,12 +66,16 @@ public:
 	
 	//Get the id of the current fiber
 	static uint64_t GetFiberId();
-
+	#ifdef __APPLE__
 	//Main function of the fiber
 	static void MainFunc(boost::context::detail::transfer_t t);	
 
 	static void empty_coroutine_function(boost::context::detail::transfer_t t) {
 	}
+	#else
+	//Main function of the fiber
+	static void MainFunc();
+	#endif
 
 public:
 	//id

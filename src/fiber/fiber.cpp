@@ -55,7 +55,9 @@ std::shared_ptr<Fiber> Fiber::GetThis()
 void Fiber::SetSchedulerFiber(Fiber* f)
 {
 	t_scheduler_fiber = f;
+	#ifdef __APPLE__
 	scheduler_fiber_context = f->m_ctx;
+	#endif
 }
 
 uint64_t Fiber::GetFiberId()
@@ -254,6 +256,8 @@ void Fiber::yield()
 	#endif	
 }
 
+
+#ifdef __APPLE__
 void Fiber::MainFunc(boost::context::detail::transfer_t t)
 {
 	//main_fcontext = t.fctx;
@@ -301,4 +305,25 @@ void empty_coroutine_function(boost::context::detail::transfer_t t) {
 	fmt::print("empty_coroutine_function\n");
 	//boost::context::detail::jump_fcontext(t.fctx, nullptr);
 	}
+#else
+void Fiber::MainFunc()
+{
+	std::shared_ptr<Fiber> curr = GetThis();
+	assert(curr != nullptr);
+	if (!curr->m_cb) {
+		fmt::print("m_cb() is nullptr\n");
+	}
+	//Run the function
+	curr->m_cb(); 
+	curr->m_cb = nullptr;
+	//Set the state of the fiber to TERM
+	curr->m_state = TERM;
+	//Get the pointer of the current fiber
+	auto raw_ptr = curr.get();
+	//Destroy the shared_ptr
+	curr.reset(); 
+	//Yield the fiber
+	raw_ptr->yield(); 
+}
+#endif
 }

@@ -1,5 +1,5 @@
-if(EXISTS "/Users/xuanzhang/Work/cppCoroutine/build/test/cppCoroutine_fiber_test[1]_tests.cmake")
-  include("/Users/xuanzhang/Work/cppCoroutine/build/test/cppCoroutine_fiber_test[1]_tests.cmake")
+if(EXISTS "/home/eecs211/Desktop/cppCoroutine/build/test/cppCoroutine_fiber_test[1]_tests.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/test/cppCoroutine_fiber_test[1]_tests.cmake")
 else()
   add_test(cppCoroutine_fiber_test_NOT_BUILT cppCoroutine_fiber_test_NOT_BUILT)
 endif()

@@ -1,4 +1,4 @@
-# Install script for directory: /Users/xuanzhang/Work/cppCoroutine/third_party
+# Install script for directory: /home/eecs211/Desktop/cppCoroutine/third_party
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,6 +27,11 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "1")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -34,56 +39,56 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Library/Developer/CommandLineTools/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/murmur3/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/murmur3/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/libpg_query/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/libpg_query/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/googletest/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/googletest/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/fmt/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/fmt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/linenoise/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/linenoise/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/libfort/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/libfort/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/argparse/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/argparse/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/utf8proc/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/utf8proc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/backward-cpp/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/backward-cpp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/xuanzhang/Work/cppCoroutine/build/third_party/readerwriterqueue/cmake_install.cmake")
+  include("/home/eecs211/Desktop/cppCoroutine/build/third_party/readerwriterqueue/cmake_install.cmake")
 endif()
 
