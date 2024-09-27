@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc ../lib/libcppCoroutine.a thread/CMakeFiles/cppCoroutine_thread.dir/thread.cpp.o fiber/CMakeFiles/cppCoroutine_fiber.dir/fiber.cpp.o scheduler/CMakeFiles/cppCoroutine_scheduler.dir/scheduler.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib ../lib/libcppCoroutine.a
