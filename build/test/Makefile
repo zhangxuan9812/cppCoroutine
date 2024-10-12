@@ -261,6 +261,20 @@ cppCoroutine_thread_test/fast:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/build
 .PHONY : cppCoroutine_thread_test/fast
 
+# Convenience name for target.
+test/CMakeFiles/cppCoroutine_timer_test.dir/rule:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/cppCoroutine_timer_test.dir/rule
+.PHONY : test/CMakeFiles/cppCoroutine_timer_test.dir/rule
+
+# Convenience name for target.
+cppCoroutine_timer_test: test/CMakeFiles/cppCoroutine_timer_test.dir/rule
+.PHONY : cppCoroutine_timer_test
+
+# fast build rule for target.
+cppCoroutine_timer_test/fast:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/build
+.PHONY : cppCoroutine_timer_test/fast
+
 __/tools/backtrace.o: __/tools/backtrace.cpp.o
 .PHONY : __/tools/backtrace.o
 
@@ -269,6 +283,7 @@ __/tools/backtrace.cpp.o:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/__/tools/backtrace.cpp.o
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_scheduler_test.dir/build.make test/CMakeFiles/cppCoroutine_scheduler_test.dir/__/tools/backtrace.cpp.o
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/__/tools/backtrace.cpp.o
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/__/tools/backtrace.cpp.o
 .PHONY : __/tools/backtrace.cpp.o
 
 __/tools/backtrace.i: __/tools/backtrace.cpp.i
@@ -279,6 +294,7 @@ __/tools/backtrace.cpp.i:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/__/tools/backtrace.cpp.i
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_scheduler_test.dir/build.make test/CMakeFiles/cppCoroutine_scheduler_test.dir/__/tools/backtrace.cpp.i
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/__/tools/backtrace.cpp.i
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/__/tools/backtrace.cpp.i
 .PHONY : __/tools/backtrace.cpp.i
 
 __/tools/backtrace.s: __/tools/backtrace.cpp.s
@@ -289,6 +305,7 @@ __/tools/backtrace.cpp.s:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/__/tools/backtrace.cpp.s
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_scheduler_test.dir/build.make test/CMakeFiles/cppCoroutine_scheduler_test.dir/__/tools/backtrace.cpp.s
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/__/tools/backtrace.cpp.s
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/__/tools/backtrace.cpp.s
 .PHONY : __/tools/backtrace.cpp.s
 
 fiber/cppCoroutine_fiber_test.o: fiber/cppCoroutine_fiber_test.cpp.o
@@ -363,6 +380,30 @@ thread/cppCoroutine_thread_test.cpp.s:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/thread/cppCoroutine_thread_test.cpp.s
 .PHONY : thread/cppCoroutine_thread_test.cpp.s
 
+timer/cppCoroutine_timer_test.o: timer/cppCoroutine_timer_test.cpp.o
+.PHONY : timer/cppCoroutine_timer_test.o
+
+# target to build an object file
+timer/cppCoroutine_timer_test.cpp.o:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/timer/cppCoroutine_timer_test.cpp.o
+.PHONY : timer/cppCoroutine_timer_test.cpp.o
+
+timer/cppCoroutine_timer_test.i: timer/cppCoroutine_timer_test.cpp.i
+.PHONY : timer/cppCoroutine_timer_test.i
+
+# target to preprocess a source file
+timer/cppCoroutine_timer_test.cpp.i:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/timer/cppCoroutine_timer_test.cpp.i
+.PHONY : timer/cppCoroutine_timer_test.cpp.i
+
+timer/cppCoroutine_timer_test.s: timer/cppCoroutine_timer_test.cpp.s
+.PHONY : timer/cppCoroutine_timer_test.s
+
+# target to generate assembly for a file
+timer/cppCoroutine_timer_test.cpp.s:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/timer/cppCoroutine_timer_test.cpp.s
+.PHONY : timer/cppCoroutine_timer_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -383,6 +424,7 @@ help:
 	@echo "... cppCoroutine_fiber_test"
 	@echo "... cppCoroutine_scheduler_test"
 	@echo "... cppCoroutine_thread_test"
+	@echo "... cppCoroutine_timer_test"
 	@echo "... __/tools/backtrace.o"
 	@echo "... __/tools/backtrace.i"
 	@echo "... __/tools/backtrace.s"
@@ -395,6 +437,9 @@ help:
 	@echo "... thread/cppCoroutine_thread_test.o"
 	@echo "... thread/cppCoroutine_thread_test.i"
 	@echo "... thread/cppCoroutine_thread_test.s"
+	@echo "... timer/cppCoroutine_timer_test.o"
+	@echo "... timer/cppCoroutine_timer_test.i"
+	@echo "... timer/cppCoroutine_timer_test.s"
 .PHONY : help
 
 

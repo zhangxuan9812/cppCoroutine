@@ -504,6 +504,19 @@ cppCoroutine_scheduler/fast:
 .PHONY : cppCoroutine_scheduler/fast
 
 #=============================================================================
+# Target rules for targets named cppCoroutine_timer
+
+# Build rule for target.
+cppCoroutine_timer: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cppCoroutine_timer
+.PHONY : cppCoroutine_timer
+
+# fast build rule for target.
+cppCoroutine_timer/fast:
+	$(MAKE) $(MAKESILENT) -f src/timer/CMakeFiles/cppCoroutine_timer.dir/build.make src/timer/CMakeFiles/cppCoroutine_timer.dir/build
+.PHONY : cppCoroutine_timer/fast
+
+#=============================================================================
 # Target rules for targets named build-tests
 
 # Build rule for target.
@@ -568,6 +581,19 @@ cppCoroutine_thread_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/build
 .PHONY : cppCoroutine_thread_test/fast
 
+#=============================================================================
+# Target rules for targets named cppCoroutine_timer_test
+
+# Build rule for target.
+cppCoroutine_timer_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cppCoroutine_timer_test
+.PHONY : cppCoroutine_timer_test
+
+# fast build rule for target.
+cppCoroutine_timer_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_timer_test.dir/build.make test/CMakeFiles/cppCoroutine_timer_test.dir/build
+.PHONY : cppCoroutine_timer_test/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -604,6 +630,8 @@ help:
 	@echo "... cppCoroutine_scheduler_test"
 	@echo "... cppCoroutine_thread"
 	@echo "... cppCoroutine_thread_test"
+	@echo "... cppCoroutine_timer"
+	@echo "... cppCoroutine_timer_test"
 	@echo "... duckdb_pg_query"
 	@echo "... fmt"
 	@echo "... fort"

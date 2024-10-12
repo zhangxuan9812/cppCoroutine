@@ -1,95 +1,157 @@
-#ifndef __SYLAR_TIMER_H__
-#define __SYLAR_TIMER_H__
+#ifndef __cppCoroutine_TIMER_H__
+#define __cppCoroutine_TIMER_H__
 
+#include <assert.h>
+#include <fmt/format.h>
+#include <fmt/ostream.h>
+#include <functional>
 #include <memory>
-#include <vector>
+#include <mutex>
 #include <set>
 #include <shared_mutex>
-#include <assert.h>
-#include <functional>
-#include <mutex>
-
-namespace sylar {
+#include <vector>
+namespace cppCoroutine {
 
 class TimerManager;
 
-class Timer : public std::enable_shared_from_this<Timer> 
-{
-    friend class TimerManager;
-public:
-    // 从时间堆中删除timer
-    bool cancel();
-    // 刷新timer
-    bool refresh();
-    // 重设timer的超时时间
-    bool reset(uint64_t ms, bool from_now);
+class Timer : public std::enable_shared_from_this<Timer> {
+  friend class TimerManager;
 
-private:
-    Timer(uint64_t ms, std::function<void()> cb, bool recurring, TimerManager* manager);
- 
-private:
-    // 是否循环
-    bool m_recurring = false;
-    // 超时时间
-    uint64_t m_ms = 0;
-    // 绝对超时时间
-    std::chrono::time_point<std::chrono::system_clock> m_next;
-    // 超时时触发的回调函数
-    std::function<void()> m_cb;
-    // 管理此timer的管理器
-    TimerManager* m_manager = nullptr;
+ public:
+  /*
+   * @brief Delete the timer
+   * @return true if the timer is deleted successfully, otherwise false
+   */
+  bool cancel();
+  /*
+   * @brief Refresh the timer
+   * @return true if the timer is refreshed successfully, otherwise false
+   */
+  bool refresh();
+  /*
+   * @brief Reset the timer
+   * @param ms the new timeout time
+   * @param from_now whether the new timeout time is from now
+   * @return true if the timer is reset successfully, otherwise false
+   */
+  bool reset(uint64_t ms, bool from_now);
 
-private:
-    // 实现最小堆的比较函数
-    struct Comparator 
-    {
-        bool operator()(const std::shared_ptr<Timer>& lhs, const std::shared_ptr<Timer>& rhs) const;
-    };
+ private:
+  /*
+   * @brief Construct a new Timer object
+   * @param[in] ms the timeout time
+   * @param[in] cb the callback function
+   * @param[in] recurring whether the timer is recurring
+   * @param[in] manager the manager of this timer
+   */
+  Timer(uint64_t ms, std::function<void()> cb, bool recurring, TimerManager *manager);
+
+ private:
+  // Whether the timer is recurring
+  bool m_recurring = false;
+  // Timeout time
+  uint64_t m_ms = 0;
+  // The absolute time of timeout
+  std::chrono::time_point<std::chrono::system_clock> m_next;
+  // The callback function
+  std::function<void()> m_cb;
+  // The manager of this timer
+  TimerManager *m_manager = nullptr;
+
+ private:
+  // The comparator of the timer
+  struct Comparator {
+    /*
+     * @brief Compare two timers
+     * @param lhs the left timer
+     * @param rhs the right timer
+     * @return true if the left timer is less than the right timer, otherwise false
+     */
+    bool operator()(const std::shared_ptr<Timer> &lhs, const std::shared_ptr<Timer> &rhs) const;
+  };
 };
 
-class TimerManager 
-{
-    friend class Timer;
-public:
-    TimerManager();
-    virtual ~TimerManager();
+/*
+ * @brief The timer manager
+ * @details The timer manager is used to manage the timers
+ */
+class TimerManager {
+  friend class Timer;
 
-    // 添加timer
-    std::shared_ptr<Timer> addTimer(uint64_t ms, std::function<void()> cb, bool recurring = false);
+ public:
+  TimerManager();
+  virtual ~TimerManager();
 
-    // 添加条件timer
-    std::shared_ptr<Timer> addConditionTimer(uint64_t ms, std::function<void()> cb, std::weak_ptr<void> weak_cond, bool recurring = false);
+  /*
+   * @brief Add a timer to the timer manager
+   * @param ms the timeout time
+   * @param cb the callback function
+   * @param recurring whether the timer is recurring
+   * @return the timer that has been added
+   */
+  std::shared_ptr<Timer> addTimer(uint64_t ms, std::function<void()> cb, bool recurring = false);
 
-    // 拿到堆中最近的超时时间
-    uint64_t getNextTimer();
+  /*
+   * @brief Add a conditional timer to the timer manager
+   * @param ms the timeout time
+   * @param cb the callback function
+   * @param weak_cond the condition of the timer
+   * @param recurring whether the timer is recurring
+   * @return the timer that has been added
+   */
+  std::shared_ptr<Timer> addConditionTimer(uint64_t ms, std::function<void()> cb, std::weak_ptr<void> weak_cond,
+                                           bool recurring = false);
 
-    // 取出所有超时定时器的回调函数
-    void listExpiredCb(std::vector<std::function<void()>>& cbs);
+  /*
+   * @brief Get the next timer
+   * @return the timeout time of the next timer
+   */
+  uint64_t getNextTimer();
 
-    // 堆中是否有timer
-    bool hasTimer();
+  /*
+   * @brief List the expired timers
+   * @param cbs the vector of the callback functions
+   */
+  void listExpiredCb(std::vector<std::function<void()>> &cbs);
 
-protected:
-    // 当一个最早的timer加入到堆中 -> 调用该函数
-    virtual void onTimerInsertedAtFront() {};
+  /*
+   * @brief Detect whether the timer manager has a timer
+   * @return true if the timer manager has a timer, otherwise false
+   */
+  bool hasTimer();
 
-    // 添加timer
-    void addTimer(std::shared_ptr<Timer> timer);
+ protected:
+  /*
+   * @brief Add a timer to the front of the timer manager
+   * @brief The function is a virtual function, which can be overridden by the subclass
+   */
+  virtual void onTimerInsertedAtFront() {};
 
-private:
-    // 当系统时间改变时 -> 调用该函数
-    bool detectClockRollover();
+  /*
+   * @brief Add a timer to the timer manager called in the multiple parameters addTimer() fuction
+   * @param timer the timer to be added
+   */
+  void addTimer(std::shared_ptr<Timer> timer);
 
-private:
-    std::shared_mutex m_mutex;
-    // 时间堆
-    std::set<std::shared_ptr<Timer>, Timer::Comparator> m_timers;
-    // 在下次getNextTime()执行前 onTimerInsertedAtFront()是否已经被触发了 -> 在此过程中 onTimerInsertedAtFront()只执行一次
-    bool m_tickled = false;
-    // 上次检查系统时间是否回退的绝对时间
-    std::chrono::time_point<std::chrono::system_clock> m_previouseTime;
+ private:
+  /*
+   * @brief Detect whether the clock has rolled over
+   * @return true if the clock has rolled over, otherwise false
+   */
+  bool detectClockRollover();
+
+ private:
+  // The mutex of the timer manager
+  // The mutex is a shared mutex, which can be shared by multiple threads
+  std::shared_mutex m_mutex;
+  // A set of timers that are sorted by the timeout time
+  std::set<std::shared_ptr<Timer>, Timer::Comparator> m_timers;
+  // Whether the timer has been triggered
+  bool m_tickled = false;
+  // The previous time
+  std::chrono::time_point<std::chrono::system_clock> m_previouseTime;
 };
 
-}
+}  // namespace cppCoroutine
 
 #endif

@@ -7,3 +7,4 @@
 subdirs("thread")
 subdirs("fiber")
 subdirs("scheduler")
+subdirs("timer")

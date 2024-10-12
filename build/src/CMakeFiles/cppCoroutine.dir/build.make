@@ -76,11 +76,13 @@ cppCoroutine_OBJECTS =
 cppCoroutine_EXTERNAL_OBJECTS = \
 "/home/eecs211/Desktop/cppCoroutine/build/src/thread/CMakeFiles/cppCoroutine_thread.dir/thread.cpp.o" \
 "/home/eecs211/Desktop/cppCoroutine/build/src/fiber/CMakeFiles/cppCoroutine_fiber.dir/fiber.cpp.o" \
-"/home/eecs211/Desktop/cppCoroutine/build/src/scheduler/CMakeFiles/cppCoroutine_scheduler.dir/scheduler.cpp.o"
+"/home/eecs211/Desktop/cppCoroutine/build/src/scheduler/CMakeFiles/cppCoroutine_scheduler.dir/scheduler.cpp.o" \
+"/home/eecs211/Desktop/cppCoroutine/build/src/timer/CMakeFiles/cppCoroutine_timer.dir/timer.cpp.o"
 
 lib/libcppCoroutine.a: src/thread/CMakeFiles/cppCoroutine_thread.dir/thread.cpp.o
 lib/libcppCoroutine.a: src/fiber/CMakeFiles/cppCoroutine_fiber.dir/fiber.cpp.o
 lib/libcppCoroutine.a: src/scheduler/CMakeFiles/cppCoroutine_scheduler.dir/scheduler.cpp.o
+lib/libcppCoroutine.a: src/timer/CMakeFiles/cppCoroutine_timer.dir/timer.cpp.o
 lib/libcppCoroutine.a: src/CMakeFiles/cppCoroutine.dir/build.make
 lib/libcppCoroutine.a: src/CMakeFiles/cppCoroutine.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/eecs211/Desktop/cppCoroutine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Linking CXX static library ../lib/libcppCoroutine.a"
