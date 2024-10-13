@@ -234,6 +234,20 @@ cppCoroutine_fiber_test/fast:
 .PHONY : cppCoroutine_fiber_test/fast
 
 # Convenience name for target.
+test/CMakeFiles/cppCoroutine_hook_test.dir/rule:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/cppCoroutine_hook_test.dir/rule
+.PHONY : test/CMakeFiles/cppCoroutine_hook_test.dir/rule
+
+# Convenience name for target.
+cppCoroutine_hook_test: test/CMakeFiles/cppCoroutine_hook_test.dir/rule
+.PHONY : cppCoroutine_hook_test
+
+# fast build rule for target.
+cppCoroutine_hook_test/fast:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/build
+.PHONY : cppCoroutine_hook_test/fast
+
+# Convenience name for target.
 test/CMakeFiles/cppCoroutine_iomanager_test.dir/rule:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test/CMakeFiles/cppCoroutine_iomanager_test.dir/rule
 .PHONY : test/CMakeFiles/cppCoroutine_iomanager_test.dir/rule
@@ -295,6 +309,7 @@ __/tools/backtrace.o: __/tools/backtrace.cpp.o
 # target to build an object file
 __/tools/backtrace.cpp.o:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/__/tools/backtrace.cpp.o
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/__/tools/backtrace.cpp.o
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_iomanager_test.dir/build.make test/CMakeFiles/cppCoroutine_iomanager_test.dir/__/tools/backtrace.cpp.o
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_scheduler_test.dir/build.make test/CMakeFiles/cppCoroutine_scheduler_test.dir/__/tools/backtrace.cpp.o
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/__/tools/backtrace.cpp.o
@@ -307,6 +322,7 @@ __/tools/backtrace.i: __/tools/backtrace.cpp.i
 # target to preprocess a source file
 __/tools/backtrace.cpp.i:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/__/tools/backtrace.cpp.i
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/__/tools/backtrace.cpp.i
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_iomanager_test.dir/build.make test/CMakeFiles/cppCoroutine_iomanager_test.dir/__/tools/backtrace.cpp.i
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_scheduler_test.dir/build.make test/CMakeFiles/cppCoroutine_scheduler_test.dir/__/tools/backtrace.cpp.i
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/__/tools/backtrace.cpp.i
@@ -319,6 +335,7 @@ __/tools/backtrace.s: __/tools/backtrace.cpp.s
 # target to generate assembly for a file
 __/tools/backtrace.cpp.s:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/__/tools/backtrace.cpp.s
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/__/tools/backtrace.cpp.s
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_iomanager_test.dir/build.make test/CMakeFiles/cppCoroutine_iomanager_test.dir/__/tools/backtrace.cpp.s
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_scheduler_test.dir/build.make test/CMakeFiles/cppCoroutine_scheduler_test.dir/__/tools/backtrace.cpp.s
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_thread_test.dir/build.make test/CMakeFiles/cppCoroutine_thread_test.dir/__/tools/backtrace.cpp.s
@@ -348,6 +365,30 @@ fiber/cppCoroutine_fiber_test.s: fiber/cppCoroutine_fiber_test.cpp.s
 fiber/cppCoroutine_fiber_test.cpp.s:
 	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/fiber/cppCoroutine_fiber_test.cpp.s
 .PHONY : fiber/cppCoroutine_fiber_test.cpp.s
+
+hook/cppCoroutine_hook_test.o: hook/cppCoroutine_hook_test.cpp.o
+.PHONY : hook/cppCoroutine_hook_test.o
+
+# target to build an object file
+hook/cppCoroutine_hook_test.cpp.o:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/hook/cppCoroutine_hook_test.cpp.o
+.PHONY : hook/cppCoroutine_hook_test.cpp.o
+
+hook/cppCoroutine_hook_test.i: hook/cppCoroutine_hook_test.cpp.i
+.PHONY : hook/cppCoroutine_hook_test.i
+
+# target to preprocess a source file
+hook/cppCoroutine_hook_test.cpp.i:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/hook/cppCoroutine_hook_test.cpp.i
+.PHONY : hook/cppCoroutine_hook_test.cpp.i
+
+hook/cppCoroutine_hook_test.s: hook/cppCoroutine_hook_test.cpp.s
+.PHONY : hook/cppCoroutine_hook_test.s
+
+# target to generate assembly for a file
+hook/cppCoroutine_hook_test.cpp.s:
+	cd /home/eecs211/Desktop/cppCoroutine/build && $(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/hook/cppCoroutine_hook_test.cpp.s
+.PHONY : hook/cppCoroutine_hook_test.cpp.s
 
 iomanager/cppCoroutine_iomanager_test.o: iomanager/cppCoroutine_iomanager_test.cpp.o
 .PHONY : iomanager/cppCoroutine_iomanager_test.o
@@ -463,6 +504,7 @@ help:
 	@echo "... build-tests"
 	@echo "... check-tests"
 	@echo "... cppCoroutine_fiber_test"
+	@echo "... cppCoroutine_hook_test"
 	@echo "... cppCoroutine_iomanager_test"
 	@echo "... cppCoroutine_scheduler_test"
 	@echo "... cppCoroutine_thread_test"
@@ -473,6 +515,9 @@ help:
 	@echo "... fiber/cppCoroutine_fiber_test.o"
 	@echo "... fiber/cppCoroutine_fiber_test.i"
 	@echo "... fiber/cppCoroutine_fiber_test.s"
+	@echo "... hook/cppCoroutine_hook_test.o"
+	@echo "... hook/cppCoroutine_hook_test.i"
+	@echo "... hook/cppCoroutine_hook_test.s"
 	@echo "... iomanager/cppCoroutine_iomanager_test.o"
 	@echo "... iomanager/cppCoroutine_iomanager_test.i"
 	@echo "... iomanager/cppCoroutine_iomanager_test.s"

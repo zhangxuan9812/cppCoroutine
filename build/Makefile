@@ -530,6 +530,19 @@ cppCoroutine_ioManager/fast:
 .PHONY : cppCoroutine_ioManager/fast
 
 #=============================================================================
+# Target rules for targets named cppCoroutine_hook
+
+# Build rule for target.
+cppCoroutine_hook: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cppCoroutine_hook
+.PHONY : cppCoroutine_hook
+
+# fast build rule for target.
+cppCoroutine_hook/fast:
+	$(MAKE) $(MAKESILENT) -f src/hook/CMakeFiles/cppCoroutine_hook.dir/build.make src/hook/CMakeFiles/cppCoroutine_hook.dir/build
+.PHONY : cppCoroutine_hook/fast
+
+#=============================================================================
 # Target rules for targets named build-tests
 
 # Build rule for target.
@@ -567,6 +580,19 @@ cppCoroutine_fiber_test: cmake_check_build_system
 cppCoroutine_fiber_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/build
 .PHONY : cppCoroutine_fiber_test/fast
+
+#=============================================================================
+# Target rules for targets named cppCoroutine_hook_test
+
+# Build rule for target.
+cppCoroutine_hook_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cppCoroutine_hook_test
+.PHONY : cppCoroutine_hook_test
+
+# fast build rule for target.
+cppCoroutine_hook_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_hook_test.dir/build.make test/CMakeFiles/cppCoroutine_hook_test.dir/build
+.PHONY : cppCoroutine_hook_test/fast
 
 #=============================================================================
 # Target rules for targets named cppCoroutine_iomanager_test
@@ -652,6 +678,8 @@ help:
 	@echo "... cppCoroutine"
 	@echo "... cppCoroutine_fiber"
 	@echo "... cppCoroutine_fiber_test"
+	@echo "... cppCoroutine_hook"
+	@echo "... cppCoroutine_hook_test"
 	@echo "... cppCoroutine_ioManager"
 	@echo "... cppCoroutine_iomanager_test"
 	@echo "... cppCoroutine_scheduler"

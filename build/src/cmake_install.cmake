@@ -67,3 +67,8 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/eecs211/Desktop/cppCoroutine/build/src/iomanager/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/eecs211/Desktop/cppCoroutine/build/src/hook/cmake_install.cmake")
+endif()
+

@@ -1,10 +1,9 @@
-#add_subdirectory(SegmentTree)
-#add_subdirectory(Knapsack)
 add_subdirectory(thread)
 add_subdirectory(fiber)
 add_subdirectory(scheduler)
 add_subdirectory(timer)
 add_subdirectory(iomanager)
+add_subdirectory(hook)
 add_library(cppCoroutine STATIC ${ALL_OBJECT_FILES})
 
 set(cppCoroutine_LIBS
@@ -15,6 +14,7 @@ set(cppCoroutine_LIBS
         cppCoroutine_scheduler
         cppCoroutine_timer
         cppCoroutine_ioManager
+        cppCoroutine_hook
         )
 
 find_package(Threads REQUIRED)
