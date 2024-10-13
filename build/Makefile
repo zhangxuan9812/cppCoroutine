@@ -517,6 +517,19 @@ cppCoroutine_timer/fast:
 .PHONY : cppCoroutine_timer/fast
 
 #=============================================================================
+# Target rules for targets named cppCoroutine_ioManager
+
+# Build rule for target.
+cppCoroutine_ioManager: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cppCoroutine_ioManager
+.PHONY : cppCoroutine_ioManager
+
+# fast build rule for target.
+cppCoroutine_ioManager/fast:
+	$(MAKE) $(MAKESILENT) -f src/iomanager/CMakeFiles/cppCoroutine_ioManager.dir/build.make src/iomanager/CMakeFiles/cppCoroutine_ioManager.dir/build
+.PHONY : cppCoroutine_ioManager/fast
+
+#=============================================================================
 # Target rules for targets named build-tests
 
 # Build rule for target.
@@ -554,6 +567,19 @@ cppCoroutine_fiber_test: cmake_check_build_system
 cppCoroutine_fiber_test/fast:
 	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_fiber_test.dir/build.make test/CMakeFiles/cppCoroutine_fiber_test.dir/build
 .PHONY : cppCoroutine_fiber_test/fast
+
+#=============================================================================
+# Target rules for targets named cppCoroutine_iomanager_test
+
+# Build rule for target.
+cppCoroutine_iomanager_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cppCoroutine_iomanager_test
+.PHONY : cppCoroutine_iomanager_test
+
+# fast build rule for target.
+cppCoroutine_iomanager_test/fast:
+	$(MAKE) $(MAKESILENT) -f test/CMakeFiles/cppCoroutine_iomanager_test.dir/build.make test/CMakeFiles/cppCoroutine_iomanager_test.dir/build
+.PHONY : cppCoroutine_iomanager_test/fast
 
 #=============================================================================
 # Target rules for targets named cppCoroutine_scheduler_test
@@ -626,6 +652,8 @@ help:
 	@echo "... cppCoroutine"
 	@echo "... cppCoroutine_fiber"
 	@echo "... cppCoroutine_fiber_test"
+	@echo "... cppCoroutine_ioManager"
+	@echo "... cppCoroutine_iomanager_test"
 	@echo "... cppCoroutine_scheduler"
 	@echo "... cppCoroutine_scheduler_test"
 	@echo "... cppCoroutine_thread"

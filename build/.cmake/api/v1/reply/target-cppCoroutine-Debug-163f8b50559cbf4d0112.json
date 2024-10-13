@@ -1,0 +1,144 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/libcppCoroutine.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"src/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 30,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 158,
+				"parent" : 3
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 157,
+				"parent" : 3
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 2,
+			"id" : "fmt::@7291a5c2c450ae686be0"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "fort::@3aed540ff5b11e52a122"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "cppCoroutine_thread::@0f92861013f9c5e6063f"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "cppCoroutine_fiber::@d24e72df460051067778"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "cppCoroutine_scheduler::@ece23abf754feafbbb80"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "cppCoroutine_timer::@c575a30741e610c5d97f"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "cppCoroutine_ioManager::@43ebbc6c1a8a0bab36b7"
+		}
+	],
+	"id" : "cppCoroutine::@145eef247bfb46b6828c",
+	"name" : "cppCoroutine",
+	"nameOnDisk" : "libcppCoroutine.a",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Object Libraries",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "build/src/thread/CMakeFiles/cppCoroutine_thread.dir/thread.cpp.o",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "build/src/fiber/CMakeFiles/cppCoroutine_fiber.dir/fiber.cpp.o",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "build/src/scheduler/CMakeFiles/cppCoroutine_scheduler.dir/scheduler.cpp.o",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "build/src/timer/CMakeFiles/cppCoroutine_timer.dir/timer.cpp.o",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"isGenerated" : true,
+			"path" : "build/src/iomanager/CMakeFiles/cppCoroutine_ioManager.dir/ioscheduler.cpp.o",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

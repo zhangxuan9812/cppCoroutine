@@ -4,6 +4,7 @@ add_subdirectory(thread)
 add_subdirectory(fiber)
 add_subdirectory(scheduler)
 add_subdirectory(timer)
+add_subdirectory(iomanager)
 add_library(cppCoroutine STATIC ${ALL_OBJECT_FILES})
 
 set(cppCoroutine_LIBS
@@ -13,6 +14,7 @@ set(cppCoroutine_LIBS
         cppCoroutine_fiber
         cppCoroutine_scheduler
         cppCoroutine_timer
+        cppCoroutine_ioManager
         )
 
 find_package(Threads REQUIRED)

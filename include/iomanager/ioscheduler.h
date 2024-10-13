@@ -1,88 +1,134 @@
-#ifndef __SYLAR_IOMANAGER_H__
-#define __SYLAR_IOMANAGER_H__
+#ifndef __cppCoroutine_IOMANAGER_H__
+#define __cppCoroutine_IOMANAGER_H__
 
-#include "scheduler.h"
-#include "timer.h"
+#include "scheduler/scheduler.h"
+#include "timer/timer.h"
 
-namespace sylar {
+namespace cppCoroutine {
 
 // work flow
-// 1 register one event -> 2 wait for it to ready -> 3 schedule the callback -> 4 unregister the event -> 5 run the callback
-class IOManager : public Scheduler, public TimerManager 
-{
-public:
-    enum Event 
-    {
-        NONE = 0x0,
-        // READ == EPOLLIN
-        READ = 0x1,
-        // WRITE == EPOLLOUT
-        WRITE = 0x4
+// 1 register one event -> 2 wait for it to ready -> 3 schedule the callback -> 4 unregister the event -> 5 run the
+// callback
+/*
+ * @brief: IOManager class, which is used to support the IO event management
+ */
+class IOManager : public Scheduler, public TimerManager {
+ public:
+  // Event enumeration
+  // NONE: No event
+  // READ: Read event
+  // WRITE: Write event
+  enum Event { NONE = 0x0, READ = 0x1, WRITE = 0x4 };
+
+ private:
+  // FdContext is used to store the context of the file descriptor
+  struct FdContext {
+    // EventContext is used to store the context of the event
+    struct EventContext {
+      // Scheduler
+      Scheduler *scheduler = nullptr;
+      // Fiber
+      std::shared_ptr<Fiber> fiber;
+      // Callback function
+      std::function<void()> cb;
     };
 
-private:
-    struct FdContext 
-    {
-        struct EventContext 
-        {
-            // scheduler
-            Scheduler *scheduler = nullptr;
-            // callback fiber
-            std::shared_ptr<Fiber> fiber;
-            // callback function
-            std::function<void()> cb;
-        };
+    // Read event context
+    EventContext read;
+    // Write event context
+    EventContext write;
+    // File descriptor
+    int fd = 0;
+    // The key of the epoll event
+    Event events = NONE;
+    std::mutex mutex;
+    /*
+     * @brief Get the event context
+     * @param event the event type
+     * @return the event context
+     */
+    EventContext &getEventContext(Event event);
+    /*
+     * @brief Reset the event context
+     * @param ctx the event context
+     */
+    void resetEventContext(EventContext &ctx);
+    /*
+     * @brief Trigger the event
+     * @param event the event type
+     */
+    void triggerEvent(Event event);
+  };
 
-        // read event context
-        EventContext read; 
-        // write event context
-        EventContext write;
-        int fd = 0;
-        // events registered
-        Event events = NONE;
-        std::mutex mutex;
+ public:
+  /*
+   * @brief Construct a new IOManager object
+   * @param threads the number of threads
+   * @param use_caller whether to use the caller thread
+   * @param name the name of the IOManager
+   */
+  IOManager(size_t threads = 1, bool use_caller = true, const std::string &name = "IOManager");
+  ~IOManager();
 
-        EventContext& getEventContext(Event event);
-        void resetEventContext(EventContext &ctx);
-        void triggerEvent(Event event);        
-    };
+  /*
+   * @brief Add an event to the IOManager
+   * @param fd the file descriptor
+   * @param event the event type
+   * @param cb the callback function
+   * @return the result
+   */
+  int addEvent(int fd, Event event, std::function<void()> cb = nullptr);
+  /*
+   * @brief Delete an event from the IOManager
+   * @param fd the file descriptor
+   * @param event the event type
+   * @return whether the event is deleted successfully
+   */
+  bool delEvent(int fd, Event event);
+  /*
+   * @brief Delete and trigger the event
+   * @param fd the file descriptor
+   * @param event the event type
+   * @return whether the event is canceled successfully
+   */
+  bool cancelEvent(int fd, Event event);
+  /*
+   * @brief Delete all events and trigger them
+   * @param fd the file descriptor
+   * @return whether all events are canceled successfully
+   */
+  bool cancelAll(int fd);
+  /*
+   * @brief Get the pointer of the current IOManager
+   * @return the pointer of the current IOManager
+   */
+  static IOManager *GetThis();
 
-public:
-    IOManager(size_t threads = 1, bool use_caller = true, const std::string &name = "IOManager");
-    ~IOManager();
+ protected:
+  void tickle() override;
 
-    // add one event at a time
-    int addEvent(int fd, Event event, std::function<void()> cb = nullptr);
-    // delete event
-    bool delEvent(int fd, Event event);
-    // delete the event and trigger its callback
-    bool cancelEvent(int fd, Event event);
-    // delete all events and trigger its callback
-    bool cancelAll(int fd);
+  bool stopping() override;
 
-    static IOManager* GetThis();
+  void idle() override;
 
-protected:
-    void tickle() override;
-    
-    bool stopping() override;
-    
-    void idle() override;
+  void onTimerInsertedAtFront() override;
+  /*
+   * @brief Resize the size of the vector that stores the fdcontexts
+   * @param size the new size of the vector
+   */
+  void contextResize(size_t size);
 
-    void onTimerInsertedAtFront() override;
-
-    void contextResize(size_t size);
-
-private:
-    int m_epfd = 0;
-    // fd[0] read，fd[1] write
-    int m_tickleFds[2];
-    std::atomic<size_t> m_pendingEventCount = {0};
-    std::shared_mutex m_mutex;
-    // store fdcontexts for each fd
-    std::vector<FdContext *> m_fdContexts;
+ private:
+  // The epoll file descriptor
+  int m_epfd = 0;
+  // m_tickleFds[0] is used to read, m_tickleFds[1] is used to write
+  int m_tickleFds[2];
+  std::atomic<size_t> m_pendingEventCount = {0};
+  std::shared_mutex m_mutex;
+  // Store fdcontexts for each fd
+  std::vector<FdContext *> m_fdContexts;
 };
 
-} // end namespace sylar
+}  // end namespace cppCoroutine
 
 #endif
