@@ -13,7 +13,14 @@
 namespace cppCoroutine {
 
 class TimerManager;
-
+/*
+ * @brief The timer class
+ * @property m_recurring Whether the timer is recurring
+ * @property m_ms The timeout time
+ * @property m_next The absolute time of timeout
+ * @property m_cb The callback function
+ * @property m_manager The manager of this timer
+ */
 class Timer : public std::enable_shared_from_this<Timer> {
   friend class TimerManager;
 
@@ -39,10 +46,10 @@ class Timer : public std::enable_shared_from_this<Timer> {
  private:
   /*
    * @brief Construct a new Timer object
-   * @param[in] ms the timeout time
-   * @param[in] cb the callback function
-   * @param[in] recurring whether the timer is recurring
-   * @param[in] manager the manager of this timer
+   * @param ms the timeout time
+   * @param cb the callback function
+   * @param recurring whether the timer is recurring
+   * @param manager the manager of this timer
    */
   Timer(uint64_t ms, std::function<void()> cb, bool recurring, TimerManager *manager);
 
@@ -74,12 +81,22 @@ class Timer : public std::enable_shared_from_this<Timer> {
 /*
  * @brief The timer manager
  * @details The timer manager is used to manage the timers
+ * @property m_timers The set of timers that are sorted by the timeout time
+ * @property m_tickled Whether the timer has been triggered
+ * @property m_previouseTime The previous time
+ * @property m_mutex The mutex of the timer manager
  */
 class TimerManager {
   friend class Timer;
 
  public:
+  /*
+   * @brief Construct a new TimerManager object
+   */
   TimerManager();
+  /*
+   * @brief Destroy the TimerManager object
+   */
   virtual ~TimerManager();
 
   /*

@@ -11,19 +11,38 @@ namespace cppCoroutine {
 // callback
 /*
  * @brief: IOManager class, which is used to support the IO event management
+ * @property m_epfd The epoll file descriptor
+ * @property m_tickleFds The tickle file descriptors
+ * @property m_pendingEventCount The count of the pending events
+ * @property m_mutex The mutex of the IOManager
+ * @property m_fdContexts The vector of the fdcontexts
  */
 class IOManager : public Scheduler, public TimerManager {
  public:
-  // Event enumeration
-  // NONE: No event
-  // READ: Read event
-  // WRITE: Write event
+  /*
+   * @brief Event enumeration
+   * @enum NONE No event
+   * @enum READ Read event
+   * @enum WRITE Write event
+   */
   enum Event { NONE = 0x0, READ = 0x1, WRITE = 0x4 };
 
  private:
-  // FdContext is used to store the context of the file descriptor
+  /*
+   * @brief FdContext class, which is used to store the context of the file descriptor
+   * @property read The read event context
+   * @property write The write event context
+   * @property fd The file descriptor
+   * @property events The key of the epoll event
+   * @property mutex The mutex of the FdContext
+   */
   struct FdContext {
-    // EventContext is used to store the context of the event
+    /*
+     * @brief EventContext class, which is used to store the context of the event
+     * @property scheduler The scheduler
+     * @property fiber The fiber
+     * @property cb The callback function
+     */
     struct EventContext {
       // Scheduler
       Scheduler *scheduler = nullptr;
@@ -68,6 +87,9 @@ class IOManager : public Scheduler, public TimerManager {
    * @param name the name of the IOManager
    */
   IOManager(size_t threads = 1, bool use_caller = true, const std::string &name = "IOManager");
+  /*
+   * @brief Destructor of the IOManager class
+   */
   ~IOManager();
 
   /*
@@ -106,7 +128,6 @@ class IOManager : public Scheduler, public TimerManager {
 
  protected:
   void tickle() override;
-
   bool stopping() override;
 
   void idle() override;

@@ -26,10 +26,7 @@ class FdCtx : public std::enable_shared_from_this<FdCtx> {
   bool m_userNonblock = false;
   bool m_isClosed = false;
   int m_fd;
-
-  // read event timeout
   uint64_t m_recvTimeout = (uint64_t)-1;
-  // write event timeout
   uint64_t m_sendTimeout = (uint64_t)-1;
 
  public:

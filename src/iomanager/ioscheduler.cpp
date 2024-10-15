@@ -373,7 +373,8 @@ void IOManager::idle() {
       if (event.data.fd == m_tickleFds[0]) {
         uint8_t dummy[256];
         // Read the data from the pipe
-        while (read(m_tickleFds[0], dummy, sizeof(dummy)) > 0);
+        while (read(m_tickleFds[0], dummy, sizeof(dummy)) > 0)
+          ;
         continue;
       }
 
